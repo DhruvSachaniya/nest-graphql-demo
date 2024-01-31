@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Pet } from './pets.entitiy';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CreatepetInput } from './dto/create.dto';
 
 @Injectable()
 export class PetsService {
@@ -28,5 +29,15 @@ export class PetsService {
         // {pet.id, pet.name} = data; 
 
         return [pet];
+    }
+
+    async createpet(createpetInput: CreatepetInput): Promise<Pet> {
+        const createpet = await this.prisma.pets.create({
+            data: {
+                name: createpetInput.name
+            }
+        })
+
+        return createpet;
     }
 }
