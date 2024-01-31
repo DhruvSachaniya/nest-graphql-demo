@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: graphql-demo
+      POSTGRES_PASSWORD: graph123
+      POSTGRES_DB: graphql
+    ports:
+      - "5432:5432"
