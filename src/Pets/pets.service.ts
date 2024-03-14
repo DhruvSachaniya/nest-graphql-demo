@@ -7,7 +7,7 @@ import { CreatepetInput } from './dto/create.dto';
 export class PetsService {
     constructor(private prisma: PrismaService) {}
 
-    async findAll(): Promise<Pet[]> {
+    async findAll(): Promise<any> {
         // const pet = new Pet();
 
         // pet.id = 1;
@@ -28,7 +28,7 @@ export class PetsService {
 
         // {pet.id, pet.name} = data; 
 
-        return [pet];
+        return data;
     }
 
     async createpet(createpetInput: CreatepetInput): Promise<Pet> {
